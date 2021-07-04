@@ -1,0 +1,12 @@
+@import './colors';
+@import './components/index.scss';
+
+html {
+  background-color: $white;
+}
+
+.app {
+  width: 100vw;
+  height: 100vw;
+}
+

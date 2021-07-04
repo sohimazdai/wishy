@@ -1,0 +1,15 @@
+.navigationBar {
+  display: flex;
+  flex-direction: row;
+  border: 0px solid grey;
+  border-bottom: 1px;
+}
+
+.navigationBar_tab {
+  padding: 12px;
+  text-decoration: none;
+
+  &:hover {
+    color: $activity-color;
+  }
+}
