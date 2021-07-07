@@ -3,10 +3,14 @@
 
 html {
   background-color: $white;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+body {
+  margin: 0;
 }
 
 .app {
   width: 100vw;
   height: 100vw;
 }
-

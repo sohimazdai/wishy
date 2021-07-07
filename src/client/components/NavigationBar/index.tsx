@@ -1,24 +1,17 @@
-import { RouteComponentProps, withRouter, Link } from 'react-router-dom';
+import MainIcon from './MainIcon';
+import NavBarItem from './NavBarItem';
 
-type Props = RouteComponentProps;
-
-function NavigationBar(props: Props) {
-  const { match: { path } } = props;
-
+export default function NavigationBar() {
   return (
     <div className="navigationBar">
-      <Link to={'/'}>
-        <div className="navigationBar_tab">
-          Main
-        </div>
-      </Link>
-      <Link to={'/profile'}>
-        <div className="navigationBar_tab">
-          Profile
-        </div>
-      </Link>
+      <NavBarItem
+        to="/"
+        item={<MainIcon />}
+      />
+      <NavBarItem
+        to="/profile"
+        item="Profile"
+      />
     </div>
   )
 }
-
-export default withRouter(NavigationBar);
