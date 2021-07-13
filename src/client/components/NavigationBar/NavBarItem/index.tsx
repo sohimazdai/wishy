@@ -14,10 +14,6 @@ function NavBarItem(props: Props): JSX.Element {
     'navigationBar_tab',
     { 'navigationBar_tab-active': location.pathname === to },
   );
-  const cnsIndicator = cn(
-    'navigationBar_indicator',
-    { 'navigationBar_indicator-active': location.pathname === to },
-  );
 
   return (
     <NavLink
@@ -25,7 +21,6 @@ function NavBarItem(props: Props): JSX.Element {
       className={cnsLink}
     >
       {item}
-      <div className={cnsIndicator} />
     </NavLink>
   )
 }

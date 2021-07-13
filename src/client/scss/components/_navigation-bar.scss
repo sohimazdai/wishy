@@ -15,27 +15,13 @@
   text-decoration: none;
   color: $text-darkest;
   transition: 0.2s all;
-
-  &:hover {
-    color: $activity-color;
-  }
-
-  &-active {
-    color: $activity-color;
-  }
-}
-
-.navigationBar_indicator {
-  position: absolute;
-  bottom: -2px;
-  left: 5%;
-  width: 90%;
-  height: 2px;
-  transition: 0.2s all;
   background-color: transparent;
 
+  &:hover {
+    color: $lavanda-700;
+  }
+
   &-active {
-    color: $activity-color;
-    background-color: $activity-color;
+    background-color: $lavanda-200;
   }
 }
