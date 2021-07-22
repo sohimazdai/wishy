@@ -2,8 +2,9 @@
 @import './components/index.scss';
 
 html {
-  background-color: $white;
+  background-color: $color-background;
   font-family: 'Montserrat', Arial, sans-serif;
+  color: $color-text-regular;
 }
 
 body {

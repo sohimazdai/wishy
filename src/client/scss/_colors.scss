@@ -1,8 +1,70 @@
+[data-theme="light"] {
+  --color-primary: #954BA1;
+  --color-complimentary: #F9F0FA;
+  --color-accept: #466947;
+  --color-text-regular: #111111;
+  --color-text-light: #333333;
+  --color-background: #FFFFFF;
+  --color-background-opposite: #333333;
+  --color-shadow: rgba(0, 0, 0, 0.062);
+}
 
-$white: #FFFFFF;
+[data-theme="dark"] {
+  --color-primary: #e7c5ec;
+  --color-complimentary: #523955;
+  --color-accept: #81c283;
+  --color-text-regular: #eeeeee;
+  --color-text-light: #cccccc;
+  --color-background: #333333;
+  --color-background-opposite: #FFFFFF;
+  --color-shadow: rgba(0, 0, 0, 0.11);
+}
 
-$text-darkest: #000000; 
+[data-theme-primary="lavanda"][data-theme="light"] {
+  --color-primary: #954BA1;
+  --color-complimentary: #F9F0FA;
+}
 
-//MAIN ACTIVITY COLOR
-$lavanda-700: #954BA1;
-$lavanda-200: #F9F0FA;
+[data-theme-primary="lavanda"][data-theme="dark"] {
+  --color-primary: #E9B6F0;
+  --color-complimentary: #4A3F4B;
+}
+
+[data-theme-primary="eggplant"][data-theme="light"]{
+  --color-primary: #71225B;
+  --color-complimentary: #F5E3F0;
+}
+
+[data-theme-primary="eggplant"][data-theme="dark"]{
+  --color-primary: #e9c5d7;
+  --color-complimentary: #3d2e3a;
+}
+
+[data-theme-primary="blueberry"][data-theme="light"]{
+  --color-primary: #283C6A;
+  --color-complimentary: #E7ECF8;
+}
+
+[data-theme-primary="blueberry"][data-theme="dark"]{
+  --color-primary: #BCD9EF;
+  --color-complimentary: #3B454D;
+}
+
+[data-theme-primary="tomato"][data-theme="light"]{
+  --color-primary: #ff6347;
+  --color-complimentary: #FFF4F2;
+}
+
+[data-theme-primary="tomato"][data-theme="dark"]{
+  --color-primary: #F3D3BE;
+  --color-complimentary: #453C36;
+}
+
+$color-primary: var(--color-primary);
+$color-complimentary: var(--color-complimentary);
+$color-text-regular: var(--color-text-regular);
+$color-text-light: var(--color-text-light);
+$color-background: var(--color-background);
+$color-shadow: var(--color-shadow);
+$color-accept: var(--color-accept);
+$color-background-opposite: var(--color-background-opposite);
