@@ -17,20 +17,20 @@ export enum PrimaryColor {
 
 const colors = [
   {
+    title: PrimaryColor.Lavanda,
+    color: '#954BA1',
+  },
+  {
     title: PrimaryColor.BlueBerry,
-    color: '#4f86f7',
+    color: '#283C6A',
   },
   {
     title: PrimaryColor.Eggplant,
-    color: '#614051',
+    color: '#71225B',
   },
   {
     title: PrimaryColor.Tomato,
     color: '#ff6347',
-  },
-  {
-    title: PrimaryColor.Lavanda,
-    color: '#954BA1',
   },
 ];
 
@@ -104,19 +104,19 @@ export default class Palette extends React.Component<{}, State> {
   render() {
     const { isDarkModeActive, currentColor } = this.state;
 
-    const toggleCn = classNames('navigationBar_themeToggle', {
-      'navigationBar_themeToggle--checked': isDarkModeActive,
+    const toggleCn = classNames('palette_themeToggle', {
+      'palette_themeToggle--checked': isDarkModeActive,
     });
-    const indicatorCn = classNames('navigationBar_themeToggleIndicator', {
-      'navigationBar_themeToggleIndicator--checked': isDarkModeActive,
+    const indicatorCn = classNames('palette_themeToggleIndicator', {
+      'palette_themeToggleIndicator--checked': isDarkModeActive,
     });
 
     return (
-      <div className="navigationBar_palette">
+      <div className="palette_palette">
         <PaletteIcon />
-        <div className="navigationBar_paletteContentWrapper">
-          <div className="navigationBar_paletteContent">
-            <div onClick={this.toggleTheme} className="navigationBar_themeToggleWrapper">
+        <div className="palette_paletteContentWrapper">
+          <div className="palette_paletteContent">
+            <div onClick={this.toggleTheme} className="palette_themeToggleWrapper">
               <SunIcon />
               <div className={toggleCn}>
                 <div className={indicatorCn} />
@@ -125,8 +125,8 @@ export default class Palette extends React.Component<{}, State> {
             </div>
             <div>
               {colors.map((palette) => {
-                const cn = classNames('navigationBar_paletteColorPicker', {
-                  'navigationBar_paletteColorPicker--selected': currentColor === palette.title,
+                const cn = classNames('palette_paletteColorPicker', {
+                  'palette_paletteColorPicker--selected': currentColor === palette.title,
                 });
 
                 return (

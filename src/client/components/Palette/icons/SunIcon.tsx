@@ -7,7 +7,7 @@ export default function SunIcon() {
       x="0px"
       y="0px"
       viewBox="0 0 302.4 302.4"
-      className="navigationBar_themeToggleIcon"
+      className="palette_themeToggleIcon"
     >
       <path d="M204.8,97.6C191.2,84,172,75.2,151.2,75.2s-40,8.4-53.6,22.4c-13.6,13.6-22.4,32.8-22.4,53.6s8.8,40,22.4,53.6
 			c13.6,13.6,32.8,22.4,53.6,22.4s40-8.4,53.6-22.4c13.6-13.6,22.4-32.8,22.4-53.6S218.8,111.2,204.8,97.6z M190.4,190.4
