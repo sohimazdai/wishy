@@ -1,32 +1,31 @@
-import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import NavigationBar from '../NavigationBar';
 import Profile from '../Profile';
-import Footer from '../Footer';
 
 import { Routes } from '../../../shared/routes';
+import RouteTemplate from '../RouteTemplate';
 
 export default function App() {
   return (
     <div className="app">
-      <div>
-        <NavigationBar />
+      <div className="app_content">
         <Switch>
-          <Route
+          <RouteTemplate
             path={Routes.MAIN}
             exact={true}
-            render={() => <h1>SLASH</h1>}
-          />
+          >
+            <h1>SLASH</h1>
+          </RouteTemplate>
 
-          <Route
+          <RouteTemplate
             path={Routes.PROFILE}
             exact={true}
-            component={Profile}
-          />
+            isAuthZone={true}
+          >
+            <Profile />
+          </RouteTemplate>
         </Switch>
       </div>
-      <Footer />
     </div>
   )
 }

@@ -4,7 +4,7 @@ const healthRouter = Router();
 
 healthRouter.post('/', health);
 
-function health(_: Request, res: Response) {
+async function health(_: Request, res: Response) {
   res.sendStatus(200);
 }
 

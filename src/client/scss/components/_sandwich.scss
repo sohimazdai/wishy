@@ -1,0 +1,369 @@
+@import '../reset-button';
+
+.sandwich_authorizationForm {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sandwich_authorizationForm_fade {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.3s all;
+  background-color: $color-shadow;
+
+  &--open {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.sandwich_authorizationForm_content {
+  position: relative;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-background;
+  border-radius: 5px;
+  padding: 24px 16px;
+}
+
+.sandwich_authorizationForm_header {
+  margin: 0;
+}
+
+.sandwich_authorizationForm_closeIcon {
+  @include reset-button;
+
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.sandwich_authorizationForm_form {
+  display: grid;
+  width: 100%;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+.sandwich_authorizationForm_formButtons {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.sandwich_navigationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 0px solid $color-background;
+  border-bottom: 1px;
+  box-shadow: 2px 2px 2px 1px $color-shadow;
+}
+
+.sandwich_navigationBar_tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.sandwich_navigationBar_tab {
+  position: relative;
+  display: flex;
+  max-width: 120px;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  color: $color-text-regular;
+  transition: 0.2s all;
+  background-color: transparent;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &-active {
+    background-color: $color-complimentary;
+  }
+}
+
+.sandwich_navigationBar_rightSideTab {
+  position: relative;
+  display: flex;
+  max-width: 120px;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  color: $color-text-regular;
+  transition: 0.2s all;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-complimentary;
+  }
+
+  &:active {
+    color: $color-primary;
+  }
+}
+
+.sandwich_navigationBar_tabMainIcon {
+  fill: $color-text-regular;
+  transition: 0.2s all;
+  
+  &:hover {
+    fill: $color-primary;
+  }
+}
+
+.sandwich_navigationBar_tabMainIconHeart {
+  fill: $color-primary;
+}
+
+.sandwich_navigationBar_sandwich_navigationBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  background-color: $color-background;
+  transition: 0.2s background-color;
+
+  &:hover {
+      background-color: $color-complimentary;
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarContent {
+  position: absolute;
+  top: 90%;
+  width: 116px;
+  padding: 16px;
+  margin-right: 8px;
+  border: 1px solid $color-complimentary;
+  border-radius: 5px;
+  background-color: $color-background;
+  box-shadow: 2px 2px 1px 1px $color-shadow;
+
+  &:hover {
+    .sandwich_navigationBar_sandwich_navigationBarContent {
+      display: block;
+    }
+
+    .sandwich_navigationBar_sandwich_navigationBar {
+      background-color: $color-complimentary;
+    }
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarContentWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  .sandwich_navigationBar_sandwich_navigationBarContent {
+    display: none;
+  }
+
+  &:hover {
+    .sandwich_navigationBar_sandwich_navigationBarContent {
+      display: block;
+    }
+  }
+}
+
+.sandwich_navigationBar_themeToggleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.sandwich_navigationBar_themeToggleIcon {
+  fill: $color-text-regular;
+}
+
+.sandwich_navigationBar_themeToggle {
+  position: relative;
+  width: 50px;
+  height: 10px;
+  margin: 0 8px;
+  border-radius: 10px;
+  background-color: $color-shadow;
+  border: 1px solid $color-primary;
+
+  &--checked {
+    background-color: $color-complimentary;
+  }
+}
+
+.sandwich_navigationBar_themeToggleIndicator {
+  width: 5px;
+  height: 22px;
+  position: absolute;
+  top: -6px;
+  border-radius: 5px;
+  left: 10%;
+  transition: .2s left;
+  background-color: $color-background-opposite;
+
+  &--checked {
+    left: calc(90% - 5px);
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarColorPicker {
+  width: 100%;
+  height: 30px;
+  margin-top: 12px;
+  border: 0px;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  &--selected {
+    border:  2px solid $color-background-opposite;
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarContent {
+  position: absolute;
+  top: 90%;
+  width: 116px;
+  padding: 16px;
+  margin-right: 8px;
+  border: 1px solid $color-complimentary;
+  border-radius: 5px;
+  background-color: $color-background;
+  box-shadow: 2px 2px 1px 1px $color-shadow;
+}
+
+.sandwich_navigationBar_sandwich_navigationBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  background-color: $color-background;
+  transition: 0.2s background-color;
+
+  &:hover {
+      background-color: $color-complimentary;
+  }
+
+  &:hover {
+    .sandwich_navigationBar_sandwich_navigationBarContent {
+      display: block;
+    }
+
+    .sandwich_navigationBar_sandwich_navigationBar {
+      background-color: $color-complimentary;
+    }
+  }
+
+  &:focus {
+    .sandwich_navigationBar_sandwich_navigationBarContent {
+      display: block;
+    }
+
+    .sandwich_navigationBar_sandwich_navigationBar {
+      background-color: $color-complimentary;
+    }
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarContentWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
+  .sandwich_navigationBar_sandwich_navigationBarContent {
+    display: none;
+  }
+
+  &:hover {
+    .sandwich_navigationBar_sandwich_navigationBarContent {
+      display: block;
+    }
+  }
+}
+
+.sandwich_navigationBar_themeToggleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.sandwich_navigationBar_themeToggleIcon {
+  fill: $color-text-regular;
+}
+
+.sandwich_navigationBar_themeToggle {
+  position: relative;
+  width: 50px;
+  height: 10px;
+  margin: 0 8px;
+  border-radius: 10px;
+  background-color: $color-shadow;
+  border: 1px solid $color-primary;
+
+  &--checked {
+    background-color: $color-complimentary;
+  }
+}
+
+.sandwich_navigationBar_themeToggleIndicator {
+  width: 5px;
+  height: 22px;
+  position: absolute;
+  top: -6px;
+  border-radius: 5px;
+  left: 10%;
+  transition: .2s left;
+  background-color: $color-background-opposite;
+
+  &--checked {
+    left: calc(90% - 5px);
+  }
+}
+
+.sandwich_navigationBar_sandwich_navigationBarColorPicker {
+  width: 100%;
+  height: 30px;
+  margin-top: 12px;
+  border: 0px;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  &--selected {
+    border:  2px solid $color-background-opposite;
+  }
+}
+
+.sandwich_footer {
+  border-top: 1px solid $color-background-opposite;
+}

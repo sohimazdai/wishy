@@ -1,10 +1,10 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { appConfig } from './app-config';
 
 class Api {
-  get: (url: string, config?: AxiosRequestConfig) => Promise<any>;
-  post: (url: string, data?: any, config?: AxiosRequestConfig) => Promise<any>;
+  get: <T>(url: string, config?: AxiosRequestConfig) => Promise<T>;
+  post: <T>(url: string, data?: any, config?: AxiosRequestConfig) => Promise<T>;
   axios: AxiosInstance;
 
   constructor() {
@@ -16,8 +16,9 @@ class Api {
     this.get = (url, config = {}) => this.axios.get(
       url,
       {
-        ...config,
+        withCredentials: true,
         method: "GET",
+        ...config,
       },
     );
 
@@ -25,10 +26,11 @@ class Api {
       url,
       data,
       {
-        ...config,
+        withCredentials: true,
         method: "POST",
+        ...config,
       },
-    );
+    ).then((result) => result.data);
   };
 }
 

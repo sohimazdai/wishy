@@ -1,0 +1,28 @@
+@import '../reset-button';
+
+.baseButton {
+  @include reset-button;
+  display: block;
+  transition: 0.2s all;
+
+  &--link {
+    text-decoration: underline;
+    color: $color-text-regular;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &--medium {
+    padding: 12px;
+    border-radius: 5px;
+    color: $color-background;
+    background-color: $color-primary;
+
+    &:hover {
+      color: $color-background;
+      background-color: $color-primary;
+    }
+  }
+}

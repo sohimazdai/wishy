@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="sandwich_footer">
       <h3>Podval</h3>
       <p>
         <span><b>email: </b>

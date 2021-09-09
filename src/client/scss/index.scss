@@ -1,5 +1,6 @@
 @import './colors';
-@import './components/index.scss';
+@import './components';
+@import './reset-button';
 
 html {
   background-color: $color-background;
@@ -17,4 +18,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.app_content {
+  flex: 1;
+  flex-direction: column;
 }

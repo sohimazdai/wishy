@@ -104,19 +104,22 @@ export default class Palette extends React.Component<{}, State> {
   render() {
     const { isDarkModeActive, currentColor } = this.state;
 
-    const toggleCn = classNames('palette_themeToggle', {
-      'palette_themeToggle--checked': isDarkModeActive,
+    const toggleCn = classNames('sandwich_navigationBar_themeToggle', {
+      'sandwich_navigationBar_themeToggle--checked': isDarkModeActive,
     });
-    const indicatorCn = classNames('palette_themeToggleIndicator', {
-      'palette_themeToggleIndicator--checked': isDarkModeActive,
+    const indicatorCn = classNames('sandwich_navigationBar_themeToggleIndicator', {
+      'sandwich_navigationBar_themeToggleIndicator--checked': isDarkModeActive,
     });
 
     return (
-      <div className="palette_palette">
+      <div
+        className="sandwich_navigationBar_sandwich_navigationBar"
+        tabIndex={1}
+      >
         <PaletteIcon />
-        <div className="palette_paletteContentWrapper">
-          <div className="palette_paletteContent">
-            <div onClick={this.toggleTheme} className="palette_themeToggleWrapper">
+        <div className="sandwich_navigationBar_sandwich_navigationBarContentWrapper">
+          <div className="sandwich_navigationBar_sandwich_navigationBarContent">
+            <div onClick={this.toggleTheme} className="sandwich_navigationBar_themeToggleWrapper">
               <SunIcon />
               <div className={toggleCn}>
                 <div className={indicatorCn} />
@@ -124,17 +127,17 @@ export default class Palette extends React.Component<{}, State> {
               <MoonIcon />
             </div>
             <div>
-              {colors.map((palette) => {
-                const cn = classNames('palette_paletteColorPicker', {
-                  'palette_paletteColorPicker--selected': currentColor === palette.title,
+              {colors.map((sandwich_navigationBar) => {
+                const cn = classNames('sandwich_navigationBar_sandwich_navigationBarColorPicker', {
+                  'sandwich_navigationBar_sandwich_navigationBarColorPicker--selected': currentColor === sandwich_navigationBar.title,
                 });
 
                 return (
                   <div
                     className={cn}
-                    key={palette.title + palette.color}
-                    style={{ backgroundColor: palette.color }}
-                    onClick={() => this.changePrimaryColor(palette.title)}
+                    key={sandwich_navigationBar.title + sandwich_navigationBar.color}
+                    style={{ backgroundColor: sandwich_navigationBar.color }}
+                    onClick={() => this.changePrimaryColor(sandwich_navigationBar.title)}
                   />
                 );
               })}

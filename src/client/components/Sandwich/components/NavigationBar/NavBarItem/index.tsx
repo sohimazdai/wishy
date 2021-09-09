@@ -11,8 +11,8 @@ function NavBarItem(props: Props): JSX.Element {
   const { to, item, location } = props;
 
   const cnsLink = cn(
-    'navigationBar_tab',
-    { 'navigationBar_tab-active': location.pathname === to },
+    'sandwich_navigationBar_tab',
+    { 'sandwich_navigationBar_tab-active': location.pathname === to },
   );
 
   return (

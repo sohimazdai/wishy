@@ -7,6 +7,7 @@
   --color-background: #FFFFFF;
   --color-background-opposite: #333333;
   --color-shadow: rgba(0, 0, 0, 0.062);
+  --color-errory: #FF0000;
 }
 
 [data-theme="dark"] {
@@ -18,6 +19,7 @@
   --color-background: #333333;
   --color-background-opposite: #FFFFFF;
   --color-shadow: rgba(0, 0, 0, 0.11);
+  --color-errory: #FF8D8D;
 }
 
 [data-theme-primary="lavanda"][data-theme="light"] {
@@ -68,3 +70,4 @@ $color-background: var(--color-background);
 $color-shadow: var(--color-shadow);
 $color-accept: var(--color-accept);
 $color-background-opposite: var(--color-background-opposite);
+$color-errory: var(--color-errory);
