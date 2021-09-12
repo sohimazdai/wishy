@@ -44,8 +44,6 @@ function Sandwich(props: Props): JSX.Element {
     return true;
   }, [user, isAuthZone]);
 
-  console.log('🤖🤖🤖🤖 isRouteUnlocked', isRouteUnlocked);
-
   return (
     <>
       <NavigationBar
@@ -53,11 +51,21 @@ function Sandwich(props: Props): JSX.Element {
         onProfileIconCick={() => setAuthFormOpen(true)}
         onLogout={onLogoutClick}
       />
-      {isRouteUnlocked && children}
-      <AuthorizationForm
-        open={authFormOpen || !isRouteUnlocked}
-        onClose={() => setAuthFormOpen(false)}
-      />
+      {
+        isRouteUnlocked
+          ? (
+            <>
+              <div className="sandwich_content">
+                {children}
+              </div>
+              <AuthorizationForm
+                open={authFormOpen}
+                onClose={() => setAuthFormOpen(false)}
+                isModal
+              />
+            </>
+          ) : <AuthorizationForm open />
+      }
       <Footer />
     </>
   );

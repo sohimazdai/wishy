@@ -9,7 +9,7 @@ authRouter.post('/login', async function (req: Request, res: Response) {
   try {
     const { user, token } = await AuthService.login(req.body.email, req.body.password);
 
-    res.cookie(authTokenName, token, { maxAge: 1000 * 60 * 60 * 24 * 300, secure: true });
+    res.cookie(authTokenName, token, { secure: true, expires: getExpiresDate() });
 
     res
       .status(200)
@@ -38,3 +38,10 @@ authRouter.post('/logout', async function (req: Request, res: Response) {
 });
 
 export default authRouter;
+
+function getExpiresDate() {
+  const nowDate = new Date();
+  nowDate.setFullYear(nowDate.getFullYear() + 1);
+
+  return nowDate;
+}

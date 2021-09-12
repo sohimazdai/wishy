@@ -26,14 +26,15 @@ const mapDispatch = (dispatch: Dispatch) => ({
 });
 
 interface Props {
+  isModal?: boolean;
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   user: IUser | null;
   onSetUser: (user: IUser) => void;
 }
 
 export function AuthorizationForm(props: Props) {
-  const { open, onClose, onSetUser } = props;
+  const { isModal, open, onClose, onSetUser } = props;
 
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -105,7 +106,7 @@ export function AuthorizationForm(props: Props) {
         },
       ).then((user) => {
         onSetUser(user);
-        onClose();
+        onClose && onClose();
         setAuthLoading(false);
       }).catch((e) => setAuthError(e.message));
     }
@@ -113,18 +114,33 @@ export function AuthorizationForm(props: Props) {
 
   const isAuthMode = mode === Mode.Auth;
 
-  const fadeCn = classNames('sandwich_authorizationForm_fade', { 'sandwich_authorizationForm_fade--open': open });
+  if (!open) {
+    return null;
+  }
+
+  const fadeCn = classNames('sandwich_authorizationForm_fade', {
+    'sandwich_authorizationForm_fade--open': open,
+    'sandwich_authorizationForm_fade--ignored': !isModal,
+  });
+  const contentCn = classNames('sandwich_authorizationForm', {
+    'sandwich_authorizationForm--open': open,
+  })
+
+  const description = !isModal && 'Чтобы продолжить, войдите в свой аккаунт';
 
   return (
-    <div className={fadeCn} onClick={onClose}>
-      <div className="sandwich_authorizationForm">
+    <div className={fadeCn} onClick={onClose} >
+      <div className={contentCn}>
+        {!!description && <h4>{description}</h4>}
         <div className="sandwich_authorizationForm_content" onClick={e => { e.stopPropagation() }}>
           <h3 className="sandwich_authorizationForm_header">
             {isAuthMode ? 'Авторизация' : 'Регистрация'}
           </h3>
-          <button className="sandwich_authorizationForm_closeIcon" onClick={onClose}>
-            <CloseIcon />
-          </button>
+          {!!isModal && (
+            <button className="sandwich_authorizationForm_closeIcon" onClick={onClose}>
+              <CloseIcon />
+            </button>
+          )}
           <div className="sandwich_authorizationForm_form">
             <BaseInput
               value={email}
@@ -193,7 +209,7 @@ export function AuthorizationForm(props: Props) {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 

@@ -47,7 +47,7 @@ class AuthService {
       email: user.email,
     };
 
-    return jwt.sign({ data, }, signature);
+    return jwt.sign({ data, }, signature, { expiresIn: '365 days' });
   }
 }
 

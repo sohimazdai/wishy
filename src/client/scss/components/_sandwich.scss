@@ -1,12 +1,8 @@
 @import '../reset-button';
 
-.sandwich_authorizationForm {
+.sandwich_content { 
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
 .sandwich_authorizationForm_fade {
   display: none;
   position: absolute;
@@ -17,10 +13,32 @@
   opacity: 0;
   transition: 0.3s all;
   background-color: $color-shadow;
-
+  
   &--open {
     display: flex;
     opacity: 1;
+  }
+  
+  &--ignored {
+    position: static;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+}
+
+.sandwich_authorizationForm {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &--open {
+    display: flex;
   }
 }
 
@@ -117,6 +135,10 @@
   &:active {
     color: $color-primary;
   }
+}
+
+.sandwich_navigationBar_profileIcon {
+  fill: $color-primary;
 }
 
 .sandwich_navigationBar_tabMainIcon {
