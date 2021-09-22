@@ -1,0 +1,96 @@
+.baseCheckbox_input {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+
+.baseCheckbox_input:not(:checked),
+.baseCheckbox_input:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+.baseCheckbox_input:not(:checked) + label,
+.baseCheckbox_input:checked + label {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.baseCheckbox_input:focus + label {
+  text-decoration: underline;
+}
+
+.baseCheckbox_input:not(:checked) + label:before,
+.baseCheckbox_input:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color-primary;
+  background: $color-background;
+  border-radius: 5px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.baseCheckbox_input:not(:checked) + label:after,
+.baseCheckbox_input:checked + label:after {
+  content: '\2713';
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 13px;
+  color: $color-primary;
+  line-height: 1.25;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.baseCheckbox_input:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+.baseCheckbox_input:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.baseCheckbox_input:disabled:not(:checked) + label:before,
+.baseCheckbox_input:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #e9e9e9;
+}
+
+.baseCheckbox_input:disabled:checked + label:after {
+  color: #777;
+}
+
+.baseCheckbox_input:disabled + label {
+  color: #aaa;
+}
+
+.baseCheckbox_label {
+  padding-top: 1px;
+  font-size: 14px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.baseCheckbox_description {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: $color-text-light;
+}

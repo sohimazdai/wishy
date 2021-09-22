@@ -15,7 +15,8 @@ authRouter.post('/login', async function (req: Request, res: Response) {
       .status(200)
       .json(user);
   } catch (e) {
-    res.status(404).end(e.message);
+    res.statusCode = 404;
+    res.json(e);
   }
 });
 

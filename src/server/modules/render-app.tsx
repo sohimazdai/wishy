@@ -8,11 +8,20 @@ import { createStore } from 'redux';
 import App from '../../client/components/App';
 
 import { rootReducer } from '../../client/store';
-import { UserAction } from '../../client/store/items/user';
+import { createSetUserAction, UserAction } from '../../client/store/items/user';
+import { createSetWishlistAction } from '../../client/store/items/wishlists';
+import WishlistService from '../services/wishlist';
 
-export function renderApp(req: Request): { appString: string, state: any } {
+export async function renderApp(req: Request): Promise<{ appString: string, state: any }> {
   const store = createStore(rootReducer);
   const user = req.user as any;
+  const wishlists = await WishlistService.getAllByUserId(user?.id);
+
+  if (user) {
+    store.dispatch(createSetUserAction(user));
+  }
+
+  store.dispatch(createSetWishlistAction(wishlists));
 
   if (user) {
     store.dispatch({

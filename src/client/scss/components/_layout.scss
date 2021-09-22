@@ -1,0 +1,12 @@
+.layout {
+  display: grid;
+  max-width: 800px;
+}
+
+.layout_main {
+  grid: 3;
+}
+
+.layout_side {
+  grid: 1;
+}

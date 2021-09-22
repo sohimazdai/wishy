@@ -1,8 +1,11 @@
 @import '../reset-button';
 
 .sandwich_content { 
+  position: static;
   flex: 1;
+  background-color: $color-background-complimentary;
 }
+
 .sandwich_authorizationForm_fade {
   display: none;
   position: absolute;
@@ -83,6 +86,7 @@
 }
 
 .sandwich_navigationBar {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

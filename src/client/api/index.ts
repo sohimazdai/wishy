@@ -11,16 +11,19 @@ class Api {
     this.axios = axios.create({
       baseURL: appConfig.protocol + '://' + appConfig.apiAddress,
       withCredentials: true,
+      timeout: 5000,
     });
 
-    this.get = (url, config = {}) => this.axios.get(
-      url,
-      {
-        withCredentials: true,
-        method: "GET",
-        ...config,
-      },
-    );
+    this.get = (url, config = {}) => this.axios
+      .get(
+        url,
+        {
+          withCredentials: true,
+          method: "GET",
+          ...config,
+        },
+      )
+      .then((result) => result.data);
 
     this.post = (url, data = {}, config = {}) => this.axios.post(
       url,
@@ -30,7 +33,8 @@ class Api {
         method: "POST",
         ...config,
       },
-    ).then((result) => result.data);
+    )
+      .then((result) => result.data);
   };
 }
 

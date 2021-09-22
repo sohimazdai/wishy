@@ -8,15 +8,16 @@ import healthRouter from './routers/health';
 import logRequest from './modules/log-request';
 import authRouter from './routers/auth';
 import isAuth from './middlewares/isAuth';
+import wishlistRouter from './routers/wishlist';
 
 const app = express();
 const port = 3000;
 
 // parse application/x-www-form-urlencoded
-app.use(urlencoded({ extended: false }))
+app.use(urlencoded({ extended: false }));
 
 // parse application/json
-app.use(json())
+app.use(json());
 
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
@@ -32,6 +33,10 @@ app.use(isAuth as any);
 // Browser routes
 app.get('/', handleBrowserRequest);
 app.get('/profile', handleBrowserRequest);
+app.get('/wishlist/create', handleBrowserRequest);
+app.get('/wish/create', handleBrowserRequest);
+
+app.use('/wishlist', wishlistRouter);
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);

@@ -7,12 +7,13 @@ export enum InputSize {
   Large = 'large',
 }
 
-type Props = {
+type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
   formFactor: InputSize;
   onChangeText: (value: string) => void;
   label?: string;
   error?: string;
-} & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+  classNames?: string;
+};
 
 export default function BaseInput(props: Props) {
   const { formFactor, label, error, onChangeText, ...inputProps } = props;
@@ -25,7 +26,7 @@ export default function BaseInput(props: Props) {
     'baseInput_label--errory': !!error,
   });
 
-  const inputCn = classNames('baseInput_input', {
+  const inputCn = classNames('baseInput_input', classNames || '', {
     'baseInput_input--small': formFactor === InputSize.Small,
     'baseInput_input--medium': formFactor === InputSize.Medium,
     'baseInput_input--large': formFactor === InputSize.Large,

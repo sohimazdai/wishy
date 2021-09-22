@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 import { IStorage } from '../../../../../shared/models/storage';
 import { createSetUserAction } from '../../../../store/items/user';
 import { Dispatch } from 'redux';
+import getAuthErrorMessage from './get-auth-error-message';
+import { AxiosError } from 'axios';
 
 enum Mode {
   Auth = 'auth',
@@ -105,10 +107,13 @@ export function AuthorizationForm(props: Props) {
           password,
         },
       ).then((user) => {
+        setAuthLoading(false);
         onSetUser(user);
         onClose && onClose();
+      }).catch((e: AxiosError) => {
+        setAuthError('Логин/пароль не подходит ни к одному из аккаунтов. Попробуйте еще раз или зарегистрируйтесь.');
         setAuthLoading(false);
-      }).catch((e) => setAuthError(e.message));
+      });
     }
   }, [email, password, passwordConfirmation]);
 
@@ -159,6 +164,7 @@ export function AuthorizationForm(props: Props) {
               placeholder="Введите пароль"
               error={passwordError}
             />
+            {authError && <p>{authError}</p>}
             {!isAuthMode && (
               <BaseInput
                 value={passwordConfirmation}
@@ -188,7 +194,6 @@ export function AuthorizationForm(props: Props) {
                   />
                 )
               }
-              {authError && <p>{authError}</p>}
 
               {isAuthMode
                 ? (

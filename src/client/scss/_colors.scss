@@ -1,10 +1,12 @@
 [data-theme="light"] {
   --color-primary: #954BA1;
+  --color-primary-accent: #803f8a;
   --color-complimentary: #F9F0FA;
   --color-accept: #466947;
   --color-text-regular: #111111;
   --color-text-light: #333333;
   --color-background: #FFFFFF;
+  --color-background-complimentary: #fafafa;
   --color-background-opposite: #333333;
   --color-shadow: rgba(0, 0, 0, 0.062);
   --color-errory: #FF0000;
@@ -12,11 +14,13 @@
 
 [data-theme="dark"] {
   --color-primary: #e7c5ec;
+  --color-primary-accent: #eccaf1;
   --color-complimentary: #523955;
   --color-accept: #81c283;
   --color-text-regular: #eeeeee;
   --color-text-light: #cccccc;
   --color-background: #333333;
+  --color-background-complimentary: #000000;
   --color-background-opposite: #FFFFFF;
   --color-shadow: rgba(0, 0, 0, 0.11);
   --color-errory: #FF8D8D;
@@ -24,45 +28,54 @@
 
 [data-theme-primary="lavanda"][data-theme="light"] {
   --color-primary: #954BA1;
+  --color-primary-accent: #803f8a;
   --color-complimentary: #F9F0FA;
 }
 
 [data-theme-primary="lavanda"][data-theme="dark"] {
   --color-primary: #E9B6F0;
+  --color-primary-accent: #eccaf1;
   --color-complimentary: #4A3F4B;
 }
 
 [data-theme-primary="eggplant"][data-theme="light"]{
   --color-primary: #71225B;
+  --color-primary-accent: #571945;
   --color-complimentary: #F5E3F0;
 }
 
 [data-theme-primary="eggplant"][data-theme="dark"]{
   --color-primary: #e9c5d7;
+  --color-primary-accent: #eec9db;
   --color-complimentary: #3d2e3a;
 }
 
 [data-theme-primary="blueberry"][data-theme="light"]{
   --color-primary: #283C6A;
+  --color-primary-accent: #213158;
   --color-complimentary: #E7ECF8;
 }
 
 [data-theme-primary="blueberry"][data-theme="dark"]{
   --color-primary: #BCD9EF;
+  --color-primary-accent: #c0ddf3;
   --color-complimentary: #3B454D;
 }
 
 [data-theme-primary="tomato"][data-theme="light"]{
   --color-primary: #ff6347;
+  --color-primary-accent: #d8523a;
   --color-complimentary: #FFF4F2;
 }
 
 [data-theme-primary="tomato"][data-theme="dark"]{
   --color-primary: #F3D3BE;
+  --color-primary-accent: #f5d9c6;
   --color-complimentary: #453C36;
 }
 
 $color-primary: var(--color-primary);
+$color-primary-accent: var(--color-primary-accent);
 $color-complimentary: var(--color-complimentary);
 $color-text-regular: var(--color-text-regular);
 $color-text-light: var(--color-text-light);
@@ -71,3 +84,4 @@ $color-shadow: var(--color-shadow);
 $color-accept: var(--color-accept);
 $color-background-opposite: var(--color-background-opposite);
 $color-errory: var(--color-errory);
+$color-background-complimentary: var(--color-background-complimentary);

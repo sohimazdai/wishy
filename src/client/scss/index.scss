@@ -1,6 +1,8 @@
 @import './colors';
 @import './components';
 @import './reset-button';
+@import './pages';
+@import './parts/';
 
 html {
   background-color: $color-background;

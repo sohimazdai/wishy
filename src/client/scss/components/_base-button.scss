@@ -4,6 +4,10 @@
   @include reset-button;
   display: block;
   transition: 0.2s all;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 
   &--link {
     text-decoration: underline;
@@ -22,7 +26,7 @@
 
     &:hover {
       color: $color-background;
-      background-color: $color-primary;
+      background-color: $color-primary-accent;
     }
   }
 }

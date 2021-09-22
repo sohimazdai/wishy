@@ -1,7 +1,4 @@
 import { IUser } from '../../../shared/models/user';
-import { IStorage } from '../../../shared/models/storage';
-import { Reducer } from 'redux';
-import { initialState } from '..';
 
 export enum UserAction {
   SetUser = 'user/setUser',
