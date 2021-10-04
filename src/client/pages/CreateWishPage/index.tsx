@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Papirus from '../../components/Papirus';
 import { UrlParser } from '../../parts/URLParser';
+import { WishForm } from '../../parts/WishForm';
 
 export default function CreateWishPage() {
   return (
@@ -13,7 +15,10 @@ export default function CreateWishPage() {
       ----или----
       <br />
       <Papirus>
-        <p>Заполните поля самостоятельно</p>
+        <>
+          <p>Заполните поля самостоятельно</p>
+          <WishForm />
+        </>
       </Papirus>
     </div >
   );

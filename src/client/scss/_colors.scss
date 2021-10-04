@@ -5,8 +5,9 @@
   --color-accept: #466947;
   --color-text-regular: #111111;
   --color-text-light: #333333;
+  --color-text-lighter: #666666;
   --color-background: #FFFFFF;
-  --color-background-complimentary: #fafafa;
+  --color-background-complimentary: #f3f3f3;
   --color-background-opposite: #333333;
   --color-shadow: rgba(0, 0, 0, 0.062);
   --color-errory: #FF0000;
@@ -19,6 +20,7 @@
   --color-accept: #81c283;
   --color-text-regular: #eeeeee;
   --color-text-light: #cccccc;
+  --color-text-lighter: #949494;
   --color-background: #333333;
   --color-background-complimentary: #000000;
   --color-background-opposite: #FFFFFF;
@@ -79,6 +81,7 @@ $color-primary-accent: var(--color-primary-accent);
 $color-complimentary: var(--color-complimentary);
 $color-text-regular: var(--color-text-regular);
 $color-text-light: var(--color-text-light);
+$color-text-lighter: var(--color-text-lighter);
 $color-background: var(--color-background);
 $color-shadow: var(--color-shadow);
 $color-accept: var(--color-accept);

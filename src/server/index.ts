@@ -32,9 +32,10 @@ app.use(isAuth as any);
 
 // Browser routes
 app.get('/', handleBrowserRequest);
-app.get('/profile', handleBrowserRequest);
 app.get('/wishlist/create', handleBrowserRequest);
 app.get('/wish/create', handleBrowserRequest);
+app.get('/wish/:id', handleBrowserRequest);
+app.get('/wishlist/:id', handleBrowserRequest);
 
 app.use('/wishlist', wishlistRouter);
 

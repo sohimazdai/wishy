@@ -5,7 +5,7 @@ export type IIWishlist = Document<IWishlist>;
 
 const WishListSchema: Schema = new Schema<IIWishlist>({
   name: { type: String, required: true },
-  items: { type: Map, of: {}, required: false },
+  items: { type: Map, of: {}, required: true },
   isPrivate: { type: Boolean, required: true },
   userId: { type: String, required: true },
   id: {

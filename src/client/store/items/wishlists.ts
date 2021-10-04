@@ -2,6 +2,7 @@ import { IWishlist } from '../../../shared/models/wishlist';
 
 export enum WishlistsAction {
   Set = 'wishlists/set',
+  Add = 'wishlists/add',
 };
 
 type SetWishlistsAction = {
@@ -14,7 +15,17 @@ export const createSetWishlistAction = (wishlists: IWishlist[]): SetWishlistsAct
   payload: wishlists,
 });
 
-type WishlistActionCreator = SetWishlistsAction;
+type AddWishlistsAction = {
+  type: WishlistsAction.Add,
+  payload: IWishlist,
+};
+
+export const createAddWishlistAction = (wishlist: IWishlist): AddWishlistsAction => ({
+  type: WishlistsAction.Add,
+  payload: wishlist,
+});
+
+type WishlistActionCreator = SetWishlistsAction | AddWishlistsAction;
 
 export const wishlistReducer = (
   wishlists: IWishlist[] = [],
@@ -23,6 +34,8 @@ export const wishlistReducer = (
   switch (action.type) {
     case WishlistsAction.Set:
       return action.payload;
+    case WishlistsAction.Add:
+      return wishlists.concat(action.payload);
     default:
       return wishlists;
   }

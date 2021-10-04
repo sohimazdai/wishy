@@ -11,11 +11,12 @@ import { rootReducer } from '../../client/store';
 import { createSetUserAction, UserAction } from '../../client/store/items/user';
 import { createSetWishlistAction } from '../../client/store/items/wishlists';
 import WishlistService from '../services/wishlist';
+import { IWishlist } from '../../shared/models/wishlist';
 
 export async function renderApp(req: Request): Promise<{ appString: string, state: any }> {
   const store = createStore(rootReducer);
   const user = req.user as any;
-  const wishlists = await WishlistService.getAllByUserId(user?.id);
+  const wishlists: IWishlist[] = await WishlistService.getAllByUserId(user?.id);
 
   if (user) {
     store.dispatch(createSetUserAction(user));

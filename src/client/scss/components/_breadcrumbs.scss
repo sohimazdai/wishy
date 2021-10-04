@@ -1,0 +1,30 @@
+.breadcrumbs {
+  margin: 16px 0;
+}
+
+.breadcrumbs_item {
+  padding-left: 4px;
+  font-size: 18px;
+  color: $color-text-regular;
+  text-decoration: none;
+  border-bottom: 1px solid $color-text-regular;
+  transition: all .2s;
+
+  &:hover {
+    color: $color-primary;
+    border-color: $color-primary;
+  }
+
+  &::after {
+    content: '>';
+    margin-left: 4px;
+  }
+
+  &:first-child {
+    padding: 0px;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+}

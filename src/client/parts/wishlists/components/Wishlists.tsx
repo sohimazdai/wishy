@@ -7,6 +7,7 @@ import BaseButton, { ButtonFormFactor } from '../../../components/BaseButton';
 import { IWishlist } from '../../../../shared/models/wishlist';
 import { Routes } from '../../../../shared/routes';
 import WishlistItem from './WishlistItem';
+import Papirus from '../../../components/Papirus';
 
 interface Props {
   wishlists?: IWishlist[]
@@ -37,16 +38,16 @@ export class Wishlists extends React.Component<Props> {
     return (
       <>
         <h3 className="wishlists_contentHeader">Ваши вишлисты</h3>
-        <p>
-          <BaseButton
-            formFactor={ButtonFormFactor.Medium}
-            href={Routes.CreateWish}
-            text="Создать виш"
-          />
-        </p>
         <div className="wishlists_contentList">
           {wishlists.map((wl) => <WishlistItem key={wl.id} wishlist={wl} />)}
         </div>
+        <p>
+          <BaseButton
+            text="Создать вишлист"
+            href={Routes.CreateWishlist}
+            formFactor={ButtonFormFactor.Medium}
+          />
+        </p>
       </>
     );
   }

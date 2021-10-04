@@ -1,12 +1,12 @@
 import { Switch } from 'react-router-dom';
 
-import Profile from '../Profile';
 import RouteTemplate from '../RouteTemplate';
 import MainPage from '../../pages/MainPage';
 import CreateWishPage from '../../pages/CreateWishPage';
 import CreateWishlistPage from '../../pages/CreateWishlistPage';
 
 import { Routes } from '../../../shared/routes';
+import WishlistPage from '../../pages/WishlistPage';
 
 export default function App() {
   return (
@@ -18,14 +18,6 @@ export default function App() {
             exact={true}
           >
             <MainPage />
-          </RouteTemplate>
-
-          <RouteTemplate
-            path={Routes.PROFILE}
-            exact={true}
-            isAuthZone={true}
-          >
-            <Profile />
           </RouteTemplate>
 
           <RouteTemplate
@@ -42,6 +34,14 @@ export default function App() {
             isAuthZone={true}
           >
             <CreateWishlistPage />
+          </RouteTemplate>
+
+          <RouteTemplate
+            path={Routes.WishlistById}
+            exact={true}
+            isAuthZone={true}
+          >
+            <WishlistPage />
           </RouteTemplate>
         </Switch>
       </div>

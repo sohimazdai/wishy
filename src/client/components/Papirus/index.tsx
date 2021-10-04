@@ -1,12 +1,13 @@
 interface Props {
   children: React.ReactElement,
+  classNames?: string,
 }
 
 export default function Papirus(props: Props) {
-  const { children } = props;
+  const { children, classNames } = props;
 
   return (
-    <div className="papirus">
+    <div className={`papirus ${classNames || ''}`}>
       {children}
     </div>
   )

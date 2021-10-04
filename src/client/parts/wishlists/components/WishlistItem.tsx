@@ -1,4 +1,8 @@
 import React from 'react';
+
+import Papirus from '../../../components/Papirus';
+import WishlistItemHeader from './WishlistItemHeader';
+
 import { IWishlist } from '../../../../shared/models/wishlist';
 
 interface Props {
@@ -8,11 +12,9 @@ interface Props {
 export default function WishlistItem(props: Props) {
   const { wishlist } = props;
 
-  console.log('🤖🤖🤖🤖 wishlist', wishlist);
   return (
-    <div>
-      <h5>{wishlist.name}</h5>
-      <h5>{wishlist.isPrivate && <div>Список скрыт и доступен по прямой ссылке</div>}</h5>
-    </div>
+    <Papirus classNames="wishlists_itemPapirus">
+      <WishlistItemHeader wishlist={wishlist} />
+    </Papirus>
   );
 }

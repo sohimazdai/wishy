@@ -30,10 +30,6 @@ export default function NavigationBar(props: Props) {
           to={Routes.MAIN}
           item={<MainIcon />}
         />
-        <NavBarItem
-          to={Routes.PROFILE}
-          item="Profile"
-        />
       </div>
       <div className="sandwich_navigationBar_tabs">
         <ProfilePanel
