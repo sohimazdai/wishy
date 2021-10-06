@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { IStorage } from '../../../../shared/models/storage';
 
 import BaseButton, { ButtonFormFactor } from '../../../components/BaseButton';
+import WishlistItem from './WishlistItem';
 
 import { IWishlist } from '../../../../shared/models/wishlist';
 import { Routes } from '../../../../shared/routes';
-import WishlistItem from './WishlistItem';
-import Papirus from '../../../components/Papirus';
 
 interface Props {
   wishlists?: IWishlist[]
@@ -32,8 +31,6 @@ export class Wishlists extends React.Component<Props> {
         </div>
       );
     }
-
-    console.log('🤖🤖🤖🤖 wishlists', wishlists);
 
     return (
       <>

@@ -1,0 +1,86 @@
+.alertList {
+  position: absolute;
+  top: 20px;
+  right: 12px;
+  width: 250px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+  min-height: 0px;
+
+  &:hover .alertList_closeAllWrap {
+    opacity: 1;
+  }
+}
+
+.alertList_item {
+  position: relative;
+  right: -300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  margin: 12px 0 0 0;
+  background-color: $color-complimentary;
+  padding: 8px;
+  box-shadow: 2px 2px 1px 1px $color-shadow;
+  border-radius: 5px;
+  border: 1px solid $color-primary;
+  transition: right .2s;
+
+  &:first-child {
+    margin: 0;
+  }
+
+  &:hover {
+    .alertList_itemClose {
+      display: block;
+    }
+  }
+
+  &--shown {
+    right: 0;
+  }
+}
+
+.alertList_itemTitle {
+  font-size: 14px;
+  color: $color-text-regular;
+}
+
+.alertList_itemDescription {
+  margin-top: 12px;
+  font-size: 12px;
+  color: $color-text-light;
+}
+
+.alertList_itemClose {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.alertList_closeAllWrap {
+  position: absolute;
+  top: -4px;
+  background-color: $color-complimentary;
+  border-radius: 5px;
+  padding: 4px;
+  transition: all .1s linear;
+  opacity: 0;
+}
+
+.alertList_progressBar {
+  width: 100%;
+  border-radius: 1px;
+  height: 2px;
+  background-color: $color-primary;
+  transition-property: width;
+  transition-timing-function: linear;
+
+  &--started {
+    width: 0%;
+  }
+}

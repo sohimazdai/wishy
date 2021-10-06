@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../../shared/routes';
 import Loader, { LoaderSize } from '../Loader';
 
+export enum ButtonIntent {
+  Primary = 'primary',
+  Clean = 'clean',
+}
+
 export enum ButtonFormFactor {
   Link = 'link',
   Medium = 'medium',
@@ -20,18 +25,35 @@ interface Props extends React.DetailedHTMLProps<
 > {
   onClick?: () => void;
   formFactor: ButtonFormFactor;
-  text: string;
+  text?: string;
   loading?: boolean;
   href?: Routes;
   flex?: boolean;
-  icon?: React.ReactElement;
+  icon?: JSX.Element;
   iconPosition?: IconPosition;
+  intent?: ButtonIntent;
 }
 
 export default function BaseButton(props: Props) {
-  const { onClick, formFactor, text, loading, href, flex, icon, iconPosition, ...restProps } = props;
+  const {
+    onClick,
+    formFactor,
+    text,
+    loading,
+    href,
+    flex,
+    icon,
+    iconPosition,
+    intent = ButtonIntent.Primary,
+    ...restProps
+  } = props;
 
-  const buttonCn = classNames('baseButton', `baseButton--${formFactor}`);
+  const buttonCn = classNames(
+    'baseButton',
+    `baseButton--${formFactor}`,
+    `baseButton--${intent}`,
+    restProps.className,
+  );
   const iconCn = classNames('baseButton_icon', `baseButton_icon--${iconPosition}`)
 
   const styles = useMemo(() => ({
@@ -46,17 +68,29 @@ export default function BaseButton(props: Props) {
     );
   }
 
+  if ((icon && !iconPosition) || (iconPosition && !icon)) {
+    throw new Error('Icon is unsuccessfully inserted')
+  };
+
+  const textContent = text || null;
+
   return (
-    <button {...restProps} onClick={onClick} className={buttonCn} style={styles}>
+    <button
+      {...restProps}
+      onClick={onClick}
+      className={buttonCn}
+      style={styles}
+    >
       {!!icon && iconPosition === IconPosition.Left && (
-        <span className={iconCn}></span>
+        <span className={iconCn}>{icon}</span>
       )}
-      {loading
-        ? <Loader size={LoaderSize.Small} withText />
-        : text
+      {
+        loading
+          ? <Loader size={LoaderSize.Small} withText />
+          : textContent
       }
       {!!icon && iconPosition === IconPosition.Right && (
-        <span className={iconCn}></span>
+        <span className={iconCn}>{icon}</span>
       )}
     </button>
   );

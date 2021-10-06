@@ -4,9 +4,10 @@ import RouteTemplate from '../RouteTemplate';
 import MainPage from '../../pages/MainPage';
 import CreateWishPage from '../../pages/CreateWishPage';
 import CreateWishlistPage from '../../pages/CreateWishlistPage';
+import WishlistPage from '../../pages/WishlistPage';
+import { AlertList } from '../AlertList';
 
 import { Routes } from '../../../shared/routes';
-import WishlistPage from '../../pages/WishlistPage';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
             <WishlistPage />
           </RouteTemplate>
         </Switch>
+        <AlertList />
       </div>
     </div>
   )

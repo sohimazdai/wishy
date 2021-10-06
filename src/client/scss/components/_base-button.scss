@@ -9,6 +9,16 @@
   justify-content: center;
   text-decoration: none;
 
+  &--primary {
+    color: $color-background;
+    background-color: $color-primary;
+  }
+
+  &--clean {
+    color: $color-text-regular;
+    background-color: transparent;
+  }
+
   &--link {
     text-decoration: underline;
     color: $color-text-regular;
@@ -21,12 +31,53 @@
   &--medium {
     padding: 12px;
     border-radius: 5px;
-    color: $color-background;
-    background-color: $color-primary;
 
     &:hover {
-      color: $color-background;
-      background-color: $color-primary-accent;
+      &--primary {
+        color: $color-background;
+        background-color: $color-primary-accent;
+      }
+
+      &--clean {
+        color: $color-text-regular;
+        background-color: $color-complimentary;
+      }
     }
+  }
+
+  &--small {
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+
+    &:hover {
+      &--primary {
+        color: $color-background;
+        background-color: $color-primary-accent;
+      }
+
+      &--clean {
+        color: $color-text-regular;
+        background-color: $color-complimentary;
+      }
+    }
+  }
+
+  &--clean {
+    padding: 4px;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.baseButton_icon {
+  &--left {
+    margin-right: 8px;
+  }
+
+  &--right {
+    margin-left: 8px;
   }
 }
