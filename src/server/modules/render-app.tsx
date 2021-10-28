@@ -12,8 +12,10 @@ import { createSetUserAction, UserAction } from '../../client/store/items/user';
 import { createSetWishlistAction } from '../../client/store/items/wishlists';
 import WishlistService from '../services/wishlist';
 import { IWishlist } from '../../shared/models/wishlist';
+import getPageNames from './get-page-names';
 
 export async function renderApp(req: Request): Promise<{ appString: string, state: any }> {
+  const pageNames = getPageNames(req);
   const store = createStore(rootReducer);
   const user = req.user as any;
   const wishlists: IWishlist[] = await WishlistService.getAllByUserId(user?.id);

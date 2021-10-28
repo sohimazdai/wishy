@@ -7,12 +7,13 @@ import { IIUser, UserModel } from '../models/user';
 
 const isAuth = async (req: Request, res: Response, next: NextFunction) => {
   const cookie = req.headers.cookie || '';
-  const r = new RegExp(`${authTokenName}=[\\w.]+`);
+  const r = new RegExp(`${authTokenName}=[\\w.|\\-]+`);
   const executedUserCookie = r.exec(cookie);
   const userCookie = executedUserCookie && executedUserCookie[0];
 
   if (userCookie) {
     const token = userCookie.replace(`${authTokenName}=`, '');
+
     try {
       const decoded = jwt.verify(token, signature);
 
